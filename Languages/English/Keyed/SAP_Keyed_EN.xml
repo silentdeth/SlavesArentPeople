@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<SlavesArentPeople_ModName>Slaves Aren't People</SlavesArentPeople_ModName>
+	<SlavesArentPeople_SettingFurniture>Slaves are furniture</SlavesArentPeople_SettingFurniture>
+	<SlavesArentPeople_SettingFurnitureTooltip>Slaves and thier equipment count towards colony wealth at half value.</SlavesArentPeople_SettingFurnitureTooltip>
+	<SlavesArentPeople_SettingPrisoners>Slaves are prisoners</SlavesArentPeople_SettingPrisoners>
+	<SlavesArentPeople_SettingPrisonersTooltip>Slaves have no effect on wealth or raid points.</SlavesArentPeople_SettingPrisonersTooltip>
+	<SlavesArentPeople_SettingAnimals>Slaves are animals</SlavesArentPeople_SettingAnimals>
+	<SlavesArentPeople_SettingAnimalsTooltip>Slaves and thier equipment count towards colony wealth. Additional points are added based on the slave's combat potential.</SlavesArentPeople_SettingAnimalsTooltip>
+	<SlavesArentPeople_SettingDebug>Debug Logging</SlavesArentPeople_SettingDebug>
+</LanguageData>
