@@ -14,7 +14,7 @@ namespace SlavesArentPeople
 {
     public static class DefaultThreatPointsNowPatch
     {
-        [HarmonyAfter(new string[] { "net.marvinkosh.rimworld.mod.combatreadinesscheck" })]
+        //[HarmonyAfter(new string[] { "net.marvinkosh.rimworld.mod.combatreadinesscheck" })]
         public static float Postfix(float __result, Map __instance, IIncidentTarget target)
         {
             /*
@@ -31,8 +31,8 @@ namespace SlavesArentPeople
                 return patchVanilla(__result, target);
             }
             else*/
-            if(!((ModLister.GetActiveModWithIdentifier("Mlie.CombatReadinessCheck") != null) ||
-                (ModLister.GetActiveModWithIdentifier("Bar0th.PFC") != null)))
+            if(!(SlavesArentPeople.SAP_Settings.hasCRC ||
+                SlavesArentPeople.SAP_Settings.hasPFC))
             {
                 if (SlavesArentPeople.SAP_Settings.debugLog)
                     Debug.Log("Slaves Aren't People: Postfix: Using vanilla patch");
@@ -62,13 +62,16 @@ namespace SlavesArentPeople
                             * Find.Storyteller.difficulty.threatScale
                             * Find.Storyteller.def.pointsFactorFromDaysPassed.Evaluate((float)GenDate.DaysPassedSinceSettle);
             basePoints -= PointsPerWealthCurve.Evaluate(wealthForStoryteller);
-            //basePoints -= DefaultThreatPointsNowPatch.PointsPerWealthCurve.Evaluate(wealthForStoryteller);
+
             if (SlavesArentPeople.SAP_Settings.debugLog)
             {
                 Debug.Log("Slaves Aren't People: DefaultThreatPointsNowPatch: Old colonist points: " + basePoints);
 
-                Debug.Log("Slaves Aren't People: DefaultThreatPointsNowPatch: Old wealth: " + wealthForStoryteller);
+                //Debug.Log("Slaves Aren't People: DefaultThreatPointsNowPatch: Old wealth: " + wealthForStoryteller);
             }
+            /**********************************
+            ****MOVED TO ForceRecountPatch*****
+            ***********************************
             //remove the wealth added by slaves
             foreach (Pawn p in target.PlayerPawnsForStoryteller)
             {
@@ -89,16 +92,23 @@ namespace SlavesArentPeople
             }
             if (SlavesArentPeople.SAP_Settings.debugLog)
                 Debug.Log("Slaves Aren't People: DefaultThreatPointsNowPatch: New wealth: " + wealthForStoryteller);
+            */
+
             //remove the raid points added by slaves
             foreach (Pawn p in target.PlayerPawnsForStoryteller)
             {
                 if (p.IsFreeColonist)
                 {
+                    //if not a slave, no changes needed
+                    if (!p.IsSlaveOfColony)
+                    {
+                        continue;
+                    }
                     if (SlavesArentPeople.SAP_Settings.debugLog && p.IsSlaveOfColony)
                         Debug.Log("Slaves Aren't People: DefaultThreatPointsNowPatch: Found Slave: " + p.Name);
                     //recalculate points per colonist based on new wealth value
                     float a = PointsPerColonistByWealthCurve.Evaluate(wealthForStoryteller);
-                    if (p.ParentHolder != null && p.ParentHolder is Building_CryptosleepCasket || p.ParentHolder is CompBiosculpterPod)
+                    if (p.ParentHolder != null && (p.ParentHolder is Building_CryptosleepCasket || p.ParentHolder is CompBiosculpterPod))
                         a *= 0.3f;
                     float num3 = Mathf.Lerp(a, a * p.health.summaryHealth.SummaryHealthPercent, 0.65f);
                     if (SlavesArentPeople.SAP_Settings.debugLog && p.IsSlaveOfColony)
@@ -109,6 +119,7 @@ namespace SlavesArentPeople
                         num3 *= 0.75f;
                         basePoints -= num3;
                         a = 0.08f * p.kindDef.combatPower;
+                        //a is reset above, so redo Cryptosleep/Biosculpt check
                         if (p.ParentHolder != null && (p.ParentHolder is Building_CryptosleepCasket || p.ParentHolder is CompBiosculpterPod))
                             a *= 0.3f;
                         num3 = Mathf.Lerp(a, a * p.health.summaryHealth.SummaryHealthPercent, 0.65f);
@@ -121,11 +132,7 @@ namespace SlavesArentPeople
                         basePoints -= num3;
                         num3 = 0; // for debug message
                     }
-                    //if normal colonist, reduce points based on new wealth
-                    else if (!p.IsSlaveOfColony)
-                    {
-                        basePoints -= PointsPerColonistByWealthCurve.Evaluate(target.PlayerWealthForStoryteller);
-                    }
+                    
                     if (SlavesArentPeople.SAP_Settings.debugLog && p.IsSlaveOfColony)
                         Debug.Log("Slaves Aren't People: DefaultThreatPointsNowPatch: Slave " + p.Name + " New Value: " + num3);
                     basePoints += num3;

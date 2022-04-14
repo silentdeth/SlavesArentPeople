@@ -38,6 +38,10 @@
       <HintPath>G:\Program Files (x86)\Steam\steamapps\workshop\content\294100\818773962\Assemblies\HugsLib.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="PrepareForCombat">
+      <HintPath>G:\Program Files (x86)\Steam\steamapps\workshop\content\294100\2580106600\1.3\Assemblies\PrepareForCombat.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -57,8 +61,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CaravanWealthForStoryTellerPatch.cs" />
     <Compile Include="DefaultThreatPointsNowPatch.cs" />
+    <Compile Include="ForceRecountPatch.cs" />
     <Compile Include="GetColonistArmouryPointsPatch.cs" />
+    <Compile Include="PFC_DefaultThreatPointsNow_Patch.cs" />
     <Compile Include="SlavesArentPeople.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MapWealthForStoryTellerPatch.cs" />

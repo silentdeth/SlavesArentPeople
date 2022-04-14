@@ -4,3 +4,6 @@ C:\Users\Raymond\source\repos\cookiecutter-rimworld-mod-development\Source\obj\R
 C:\Users\Raymond\source\repos\cookiecutter-rimworld-mod-development\1.3\Assemblies\SlavesArentPeople.dll
 C:\Users\Raymond\source\repos\cookiecutter-rimworld-mod-development\Source\obj\Release\SlavesArentPeople.csprojAssemblyReference.cache
 G:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Slaves Arent People\1.3\Assemblies\SlavesArentPeople.dll
+C:\Users\Raymond\source\repos\Rimworld-mod-development\SlavesArentPeople\Source\obj\Release\SlavesArentPeople.csprojAssemblyReference.cache
+C:\Users\Raymond\source\repos\Rimworld-mod-development\SlavesArentPeople\Source\obj\Release\SlavesArentPeople.csproj.CoreCompileInputs.cache
+C:\Users\Raymond\source\repos\Rimworld-mod-development\SlavesArentPeople\Source\obj\Release\SlavesArentPeople.dll

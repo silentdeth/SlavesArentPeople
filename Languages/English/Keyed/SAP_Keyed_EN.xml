@@ -9,4 +9,9 @@
 	<SlavesArentPeople_SettingAnimals>Slaves are animals</SlavesArentPeople_SettingAnimals>
 	<SlavesArentPeople_SettingAnimalsTooltip>Slaves and thier equipment count towards colony wealth. Additional points are added based on the slave's combat potential.</SlavesArentPeople_SettingAnimalsTooltip>
 	<SlavesArentPeople_SettingDebug>Debug Logging</SlavesArentPeople_SettingDebug>
+	<!-- Prepare for Combat compatibility Settings -->
+	<SlavesArentPeople.Setting.PFC.Wealth>Slave Wealth % (current: {0}, default: {1})</SlavesArentPeople.Setting.PFC.Wealth>
+	<SlavesArentPeople.Setting.PFC.Wealth.Tooltip>Percent of slave value used compared to a normal colonist. Vanilla: 75%</SlavesArentPeople.Setting.PFC.Wealth.Tooltip>
+	<SlavesArentPeople.Setting.PFC.RaidPoints>Slave Raid Points % (current: {0}, default: {1})</SlavesArentPeople.Setting.PFC.RaidPoints>
+	<SlavesArentPeople.Setting.PFC.RaidPoints.Tooltip>Percent of slave raid points used compared to a normal colonist. Vanilla: 70%</SlavesArentPeople.Setting.PFC.RaidPoints.Tooltip>
 </LanguageData>
