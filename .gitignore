@@ -1,6 +1,7 @@
 ﻿*.suo
 *.json
 *.cache
+/Source/obj
 /Source/obj/SlavesArentPeople.csproj.nuget.g.targets
 /Source/obj/SlavesArentPeople.csproj.nuget.g.props
 /Source/obj/Release/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs
