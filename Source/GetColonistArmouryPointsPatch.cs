@@ -78,6 +78,7 @@ namespace SlavesArentPeople.CombatReadinessCheckCompat
                             num1 += (float)((float)GetBattleScore.GetValue(colonist)
                                 * (double)SlavesArentPeople.CRC_Compat.percentOfValueForBuildings / 100.0);
                         */
+
                         //if furniture, points only based on wealth
                         //in prisoners, slaves have no effect on points. 
                         //if animals, points based on combat power.
